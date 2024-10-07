@@ -11,9 +11,10 @@ export const Sidebar = styled.aside`
 
   a {
     color: #fff;
+  }
 
-    & + a {
-      margin-top: 10px;
-    }
+  button {
+    color: #fff;
+    margin-top: 20px;
   }
 `;
