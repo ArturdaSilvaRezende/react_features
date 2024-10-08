@@ -13,7 +13,7 @@ export const Pagination = styled.div`
     button {
       border: 1px solid #dce1e7;
       border-radius: 5px;
-      color: navy;
+      /* color: navy; */
       padding: 5px;
       transition: all 0.3s ease-in;
 
@@ -22,7 +22,7 @@ export const Pagination = styled.div`
       }
 
       svg {
-        color: #3b3f71;
+        /* color: #3b3f71; */
         font-size: 18px;
         position: relative;
         top: 2px;
