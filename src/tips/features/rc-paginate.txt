@@ -1,0 +1,6 @@
+Na biblioteca rc-pagination, a paginação desativa os botões de navegação quando o número total de itens é menor do que o limite especificado para cada página. Neste caso, você está limitando os dados retornados para no máximo 9 itens, e a paginação entende que não há itens suficientes para criar múltiplas páginas. Assim, os botões são desativados por padrão.
+
+A rc-pagination usa as seguintes verificações para ativar ou desativar os botões:
+
+Se o número total de itens for menor ou igual ao número de itens por página (10 por padrão), ela desativa os botões de navegação.
+O botão "Próximo" ou "Anterior" é desativado automaticamente se a página atual estiver no início ou no final da lista de páginas.

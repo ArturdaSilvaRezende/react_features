@@ -10,7 +10,9 @@ export default function RcPaginationPage() {
   useEffect(() => {
     async function getDatas() {
       try {
-        const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+        const res = await fetch(
+          "https://jsonplaceholder.typicode.com/todos?_limit=100"
+        );
 
         if (!res.ok) {
           throw new Error("Erro ao carregar");
@@ -37,7 +39,10 @@ export default function RcPaginationPage() {
           <RcPagination data={todos}>
             {(item) => (
               <div>
-                <h3>{item.title}</h3>
+                <h3>
+                  <span style={{ marginRight: "20px" }}>{item.id}</span>
+                  <span>{item.title}</span>
+                </h3>
               </div>
             )}
           </RcPagination>
