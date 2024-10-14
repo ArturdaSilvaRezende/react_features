@@ -5,23 +5,6 @@ import Pagination from "rc-pagination";
 import * as C from "./style";
 
 export default function RcPagination({ data = [], children }) {
-  // const [todos, setTodos] = useState([]);
-
-  // useEffect(() => {
-  //   async function getDatas() {
-  //     const res = await fetch("https://jsonplaceholder.typicode.com/todos");
-
-  //     if (!res.ok) {
-  //       throw new Error("Erro ao carregar");
-  //     }
-
-  //     const data = await res.json();
-  //     setTodos(data);
-  //   }
-
-  //   getDatas();
-  // }, []);
-
   const [perPage] = useState(10);
   const [size, setSize] = useState(perPage);
   const [current, setCurrent] = useState(1);
