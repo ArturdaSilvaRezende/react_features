@@ -4,13 +4,13 @@ export const Sidebar = styled.aside`
   border-right: 1px solid #e3edf9;
   position: relative;
   min-height: 100vh;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.4s ease-in-out;
   width: ${({ $isopen }) => ($isopen ? "7%" : "255px")};
 
   .sidebar__header {
     display: flex;
     justify-content: space-between;
-    flex-direction: ${({ $isopen }) => ($isopen ? "column" : "row")};
+    flex-wrap: wrap;
     align-items: center;
     border-bottom: 1px solid #e3edf9;
     height: ${({ $isopen }) => ($isopen ? "auto" : "66px")};
@@ -28,6 +28,7 @@ export const Sidebar = styled.aside`
       border-radius: 6px;
       height: 34px;
       width: 34px;
+      margin: 0 auto;
 
       img {
         position: relative;

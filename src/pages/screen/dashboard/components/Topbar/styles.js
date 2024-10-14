@@ -105,8 +105,8 @@ export const BtnControlMenu = styled.button`
   }
 
   @media screen and (max-width: 767px) {
-    top: 25px;
-    left: 13px;
+    top: 15px;
+    left: -2px;
   }
 `;
 

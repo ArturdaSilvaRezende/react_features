@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Login, LoginContents, LoginHero } from "./styles";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import Brand from "../../../assets/images/login/brand.png";
+import Hero from "./components/hero";
 
 const LoginComponent = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -61,7 +62,7 @@ const LoginComponent = () => {
         </footer>
       </LoginContents>
 
-      <LoginHero></LoginHero>
+      <Hero />
     </Login>
   );
 };
