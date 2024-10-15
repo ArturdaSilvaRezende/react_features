@@ -12,7 +12,7 @@ export const InputPassword = styled.div`
     margin-bottom: 5px;
   }
 
-  s span {
+  span {
     position: absolute;
     right: 12px;
     bottom: 5px;

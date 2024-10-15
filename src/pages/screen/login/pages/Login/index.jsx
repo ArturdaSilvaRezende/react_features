@@ -1,10 +1,20 @@
 import Layout from "../../layout";
-import InputPasswordComponent from "../../components/ui/Input";
+import InputPasswordComponent from "../../components/ui/InputPassword";
+import TitleComponent from "../../components/title";
+import LoginButtonComponent from "../../components/ui/Button";
+import { LoginPage } from "./styles";
 
 export default function LoginPageComponent() {
   return (
     <Layout>
-      <div>
+      <LoginPage>
+        <TitleComponent
+          title="Seja bem-vindo!"
+          subtitle="Preencha seus dados para realizar o Login"
+          $text_align="center"
+          $margin_align="0 auto"
+          $margin_bottom="0"
+        />
         <form className="login__form">
           <div className="login__form-item">
             <label htmlFor="suporte">E-mail ou Usuário</label>
@@ -20,13 +30,11 @@ export default function LoginPageComponent() {
             </select>
           </div>
 
-          <button className="login__submit" type="button">
-            Login
-          </button>
+          <LoginButtonComponent buttonText="Login" />
         </form>
 
         <a className="login__forgot-password">Esqueceu a senha?</a>
-      </div>
+      </LoginPage>
     </Layout>
   );
 }

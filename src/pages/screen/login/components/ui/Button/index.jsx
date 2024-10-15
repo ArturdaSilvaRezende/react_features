@@ -1,5 +1,9 @@
 import { LoginButton } from "./styles";
 
-export default function LoginButtonComponent(buttonText) {
-  return <LoginButton>{buttonText}</LoginButton>;
+export default function LoginButtonComponent({ buttonText, isButtonDisabled }) {
+  return (
+    <LoginButton type="button" disabled={isButtonDisabled}>
+      {buttonText}
+    </LoginButton>
+  );
 }

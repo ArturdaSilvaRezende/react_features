@@ -9,6 +9,12 @@ export const LoginButton = styled.button`
   transition: all ease 0.2s;
   width: 100%;
 
+  &:disabled {
+    background-color: #e3edf9;
+    color: #546984;
+    font-weight: 600;
+  }
+
   &:hover {
     opacity: 0.8;
   }

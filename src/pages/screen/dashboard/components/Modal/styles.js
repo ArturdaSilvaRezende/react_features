@@ -16,7 +16,7 @@ export const Modal = styled.div`
   border: 0.5px solid #e3edf9;
   border-radius: 6px;
   font-size: 13px;
-  height: 645px;
+  height: 80vh;
   overflow-y: auto;
   overflow-x: hidden;
   width: 544px;
@@ -176,6 +176,7 @@ export const Modal = styled.div`
   @media screen and (min-width: 768px) and (max-width: 992px) {
     right: 10px;
     top: 75px;
+    height: 70vh;
     width: 500px;
   }
 
@@ -184,11 +185,10 @@ export const Modal = styled.div`
     top: 60px;
     left: 50%;
     transform: translateX(-50%);
-    max-height: 100vh;
     width: 90%;
 
     .modal__contents {
-      padding-bottom: 50px;
+      padding-bottom: 10px;
 
       .modal__date {
         span {

@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const LoginFooter = styled.footer`
-  text-align: center;
-  margin-top: 60px;
+  position: absolute;
+  bottom: 20px;
+  left: 120px;
 
   p {
     color: #bfcde0;

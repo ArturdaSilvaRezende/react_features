@@ -13,6 +13,10 @@ export default function Sidebar() {
       <Dropdown label="Telas">
         <div style={{ display: "flex", flexDirection: "column" }}>
           <Link to="/login">Login</Link>
+          <Link to="/forgotpassword01">Esqueceu a Senha 01</Link>
+          <Link to="/forgotpassword02">Esqueceu a Senha 02</Link>
+          <Link to="/forgotpassword03">Esqueceu a Senha 03</Link>
+          <Link to="/forgotpassword04">Esqueceu a Senha 04</Link>
           <Link to="/dashboard">Dashboard</Link>
         </div>
       </Dropdown>
