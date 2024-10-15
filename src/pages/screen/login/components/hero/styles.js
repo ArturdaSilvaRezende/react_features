@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import LoginHeroImage from "../../../../../assets/images/login/login.png";
 
 export const LoginHero = styled.figure`
   width: 100%;
