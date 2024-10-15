@@ -10,6 +10,12 @@ export default function Sidebar() {
         <Link to="/rcpagination">Pagination</Link>
         <Link to="/timer">Timer</Link>
       </Dropdown>
+      <Dropdown label="Telas">
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <Link to="/login">Login</Link>
+          <Link to="/dashboard">Dashboard</Link>
+        </div>
+      </Dropdown>
     </C.Sidebar>
   );
 }

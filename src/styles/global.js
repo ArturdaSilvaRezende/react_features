@@ -9,6 +9,10 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
     }
 
+    body {
+        font-family: "Sora", sans-serif;
+    }
+
     a {
         text-decoration: none;
     }
@@ -21,5 +25,9 @@ export const GlobalStyles = createGlobalStyle`
 
     li {
         list-style: none;
+    }
+
+    .active {
+        color: #0149FD !important;
     }
 `;

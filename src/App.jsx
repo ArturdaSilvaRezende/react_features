@@ -1,9 +1,12 @@
+import { SidebarMenuProvider } from "./contexts/SidebarContext";
 import AppRoutes from "./routes/routes";
 
 function App() {
   return (
     <>
-      <AppRoutes />
+      <SidebarMenuProvider>
+        <AppRoutes />
+      </SidebarMenuProvider>
     </>
   );
 }
