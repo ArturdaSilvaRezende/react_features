@@ -8,6 +8,7 @@ export default function Sidebar() {
       <Link to="/">Home</Link>
       <Dropdown label="Features">
         <Link to="/rcpagination">Pagination</Link>
+        <Link to="/timer">Timer</Link>
       </Dropdown>
       <Dropdown label="Telas">
         <div style={{ display: "flex", flexDirection: "column" }}>
