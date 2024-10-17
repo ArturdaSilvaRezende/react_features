@@ -6,6 +6,13 @@ export const InputPassword = styled.div`
   margin-bottom: 15px;
   position: relative;
 
+  input {
+    &::placeholder {
+      position: relative;
+      top: 4.5px;
+    }
+  }
+
   label {
     color: #171425;
     font-size: 13px;

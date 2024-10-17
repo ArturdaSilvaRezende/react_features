@@ -10,6 +10,7 @@ export default function TimerComponent({
 
   useEffect(() => {
     let interval = null;
+
     if (timer > 0) {
       interval = setInterval(() => {
         setTimer((prevTime) => prevTime - 1);
@@ -18,8 +19,17 @@ export default function TimerComponent({
       setIsButtonDisabled(false);
       clearInterval(interval);
     }
+
     return () => clearInterval(interval);
   }, [timer]);
+
+  const formatTime = (sec) => {
+    const minutes = Math.floor(sec / 60);
+    const displaySeconds = sec % 60;
+    return `${minutes < 10 ? "0" : ""}${minutes}:${
+      displaySeconds < 10 ? "0" : ""
+    }${displaySeconds}`;
+  };
 
   return (
     <Timer>
@@ -28,7 +38,7 @@ export default function TimerComponent({
         buttonText="Continuar"
       />
 
-      {isButtonDisabled && <p>{timer}</p>}
+      {isButtonDisabled && <p>{formatTime(timer)}</p>}
     </Timer>
   );
 }

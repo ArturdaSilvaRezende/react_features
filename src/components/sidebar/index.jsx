@@ -20,6 +20,9 @@ export default function Sidebar() {
           <Link to="/dashboard">Dashboard</Link>
         </div>
       </Dropdown>
+      <Dropdown label="Modules">
+        <Link to="/modules">Modules</Link>
+      </Dropdown>
     </C.Sidebar>
   );
 }

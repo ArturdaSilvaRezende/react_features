@@ -1,91 +1,46 @@
-import { useState } from "react";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import PropTypes from "prop-types";
+// PaginationComponent.jsx
+import React, { useState } from "react";
 import Pagination from "rc-pagination";
-import * as C from "./style";
+import "rc-pagination/assets/index.css";
 
-export default function RcPagination({ data = [], children }) {
-  const [perPage] = useState(10);
-  const [size, setSize] = useState(perPage);
-  const [current, setCurrent] = useState(1);
+const PaginationComponent = ({ data }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
 
-  const PerPageChange = (value) => {
-    setSize(value);
-    const newPerPage = Math.ceil(data.length / value);
-    if (current > newPerPage) {
-      setCurrent(newPerPage);
-    }
+  // Função para lidar com a mudança de página
+  const onChangePage = (page) => {
+    setCurrentPage(page);
   };
 
-  const getData = (current, pageSize) => {
-    // Normally you should get the data from the server
-    return data.slice((current - 1) * pageSize, current * pageSize);
-  };
-
-  const PaginationChange = (page, pageSize) => {
-    setCurrent(page);
-    setSize(pageSize);
-  };
-
-  const PrevNextArrow = (current, type, originalElement) => {
-    if (type === "prev") {
-      return (
-        <button>
-          <IoIosArrowBack />
-        </button>
-      );
-    }
-    if (type === "next") {
-      return (
-        <button>
-          <IoIosArrowForward />
-        </button>
-      );
-    }
-    return originalElement;
-  };
-
-  const handlePerPageChange = (e) => {
-    PerPageChange(Number(e.target.value));
+  // Função para lidar com a mudança de quantidade de itens por página
+  const handlePageSizeChange = (e) => {
+    setPageSize(Number(e.target.value));
+    setCurrentPage(1); // Resetar para a primeira página ao mudar a quantidade de registros
   };
 
   return (
-    <>
-      <C.Pagination>
-        <Pagination
-          className="pagination__data"
-          showTotal={(total, range) => `Página ${range[0]} de ${total}`}
-          onChange={PaginationChange}
-          total={data.length}
-          current={current}
-          pageSize={size}
-          showSizeChanger={false}
-          itemRender={PrevNextArrow}
-          onShowSizeChange={PerPageChange}
-        />
-
-        <C.PaginationSelect>
-          <p>Mostrar</p>
-          <select value={size} onChange={handlePerPageChange}>
-            <option value={10}>10 Linhas</option>
-            <option value={25}>25 Linhas</option>
-            <option value={50}>50 Linhas</option>
-            <option value={100}>100 Linhas</option>
-          </select>
-          <p>de {data.length} Registros</p>
-        </C.PaginationSelect>
-      </C.Pagination>
-
+    <div>
       <div>
-        {getData(current, size).map((item) => (
-          <div key={item.id}>{children(item)}</div>
-        ))}
+        Página {currentPage} de {Math.ceil(data.length / pageSize)}
       </div>
-    </>
+      <div>
+        Mostrar{" "}
+        <select value={pageSize} onChange={handlePageSizeChange}>
+          <option value={10}>10</option>
+          <option value={20}>20</option>
+          <option value={50}>50</option>
+          <option value={100}>100</option>
+        </select>{" "}
+        registros de {data.length}
+      </div>
+      <Pagination
+        current={currentPage}
+        total={data.length}
+        pageSize={pageSize}
+        onChange={onChangePage}
+      />
+    </div>
   );
-}
-
-RcPagination.propTypes = {
-  children: PropTypes.node,
-  data: PropTypes.node,
 };
+
+export default PaginationComponent;

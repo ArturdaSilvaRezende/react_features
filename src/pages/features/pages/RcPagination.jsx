@@ -1,53 +1,43 @@
-import { useEffect, useState } from "react";
-import RcPagination from "../../../components/features/pagination";
-import Layout from "../../../components/layout";
-import * as C from "./style";
+import React, { useState, useEffect } from "react";
+import PaginationComponent from "../../../components/features/pagination";
 
-export default function RcPaginationPage() {
-  const [todos, setTodos] = useState([]);
+function App() {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function getDatas() {
+    const fetchData = async () => {
+      setLoading(true);
       try {
-        const res = await fetch(
-          "https://jsonplaceholder.typicode.com/todos?_limit=100"
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/posts"
         );
-
-        if (!res.ok) {
-          throw new Error("Erro ao carregar");
-        }
-
-        const data = await res.json();
-        setTodos(data);
+        const result = await response.json();
+        setData(result);
       } catch (error) {
-        console.error(error);
+        console.error("Erro ao buscar dados:", error);
       } finally {
         setLoading(false);
       }
-    }
+    };
 
-    getDatas();
+    fetchData();
   }, []);
 
   return (
-    <Layout>
-      <C.RcPagination>
-        {loading ? (
-          <p>...carregando</p>
-        ) : (
-          <RcPagination data={todos}>
-            {(item) => (
-              <div>
-                <h3>
-                  <span style={{ marginRight: "20px" }}>{item.id}</span>
-                  <span>{item.title}</span>
-                </h3>
-              </div>
-            )}
-          </RcPagination>
-        )}
-      </C.RcPagination>
-    </Layout>
+    <div>
+      <h1>Lista de Postagens</h1>
+      {loading ? <p>Carregando...</p> : <PaginationComponent data={data} />}
+      {data.map((item) => (
+        <div key={item.id}>
+          <p>
+            <span>{item.id}</span>
+            <span>{item.title}</span>
+          </p>
+        </div>
+      ))}
+    </div>
   );
 }
+
+export default App;

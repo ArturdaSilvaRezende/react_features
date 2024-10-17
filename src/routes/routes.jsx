@@ -13,6 +13,7 @@ import ForgotPassword01 from "../pages/screen/login/pages/ForgotPassword01";
 import ForgotPassword02 from "../pages/screen/login/pages/ForgotPassword02";
 import ForgotPassword03 from "../pages/screen/login/pages/ForgotPassword03";
 import ForgotPassword04 from "../pages/screen/login/pages/ForgotPassword04";
+import Modules from "../pages/modules";
 
 export default function AppRoutes() {
   return (
@@ -37,6 +38,9 @@ export default function AppRoutes() {
         <Route path="/userpermission" element={<UserPermission />} />
         <Route path="/units" element={<Units />} />
         <Route path="*" element={<NotFound />} />
+
+        {/* modules */}
+        <Route path="/modules" element={<Modules />} />
       </Routes>
     </BrowserRouter>
   );
